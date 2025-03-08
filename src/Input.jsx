@@ -1,21 +1,34 @@
 import { useState } from "react";
+import axios from "axios";
 import "./styles/input.css";
 
 export default function AIDetector() {
   const [text, setText] = useState("");
   const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = () => {
-    console.log("Submitted text:", text);
-    setResult({
-      label: Math.random() > 0.5 ? "AI" : "Human",
-      confidence: (Math.random() * 100).toFixed(2),
-    });
+  const handleSubmit = async () => {
+    if (!text.trim()) return;
+
+    setLoading(true);
+    setError("");
+    setResult(null);
+
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/analyze", { text });
+      setResult(response.data);
+    } catch (err) {
+      setError("Failed to analyze text. Try again.");
+    }
+
+    setLoading(false);
   };
 
   const handleClear = () => {
     setText("");
     setResult(null);
+    setError("");
   };
 
   return (
@@ -32,13 +45,14 @@ export default function AIDetector() {
             onChange={(e) => setText(e.target.value)}
           />
           <div className="button-group">
-            <button className="button submit" onClick={handleSubmit} disabled={!text.trim()}>
-              Analyze
+            <button className="button submit" onClick={handleSubmit} disabled={!text.trim() || loading}>
+              {loading ? "Analyzing..." : "Analyze"}
             </button>
             <button className="button clear" onClick={handleClear}>
               Clear
             </button>
           </div>
+          {error && <p className="error-text">{error}</p>}
         </div>
       </div>
 
