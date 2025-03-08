@@ -1,0 +1,115 @@
+/* General App Styling */
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+    padding: 30px;
+  }
+  
+  /* Main Card Container */
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 600px;
+    height:auto;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title */
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Text Area */
+  .text-area {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  .text-area:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Buttons */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+  }
+  
+  .button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 0 5px;
+  }
+  
+  .submit {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .submit:hover {
+    background-color: #0056b3;
+  }
+  
+  .clear {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .clear:hover {
+    background-color: #999;
+  }
+  
+  /* Result Box */
+  .result-box {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* AI & Human Text Styling */
+  .ai-text {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .human-text {
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
