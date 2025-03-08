@@ -1,25 +1,35 @@
-/* General App Styling */
-.app-container {
+
+  
+  /* Make the sections side by side, but stack them on smaller screens */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  /* Left section */
+  .left-section,
+  .right-section {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
-    padding: 30px;
   }
   
-  /* Main Card Container */
+  /* Card - Input Section */
   .card {
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-    width: 600px;
-    height:auto;
+    max-width: 600px;
+    width: 100%;
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   
+  /* Hover effect */
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
@@ -27,8 +37,8 @@
   
   /* Title */
   .title {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: bold;
     color: #333;
     margin-bottom: 15px;
     letter-spacing: 0.5px;
@@ -88,16 +98,36 @@
     background-color: #999;
   }
   
-  /* Result Box */
+  /* Right Section - Result Box */
+  .right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  /* Result Box Styling */
   .result-box {
-    margin-top: 25px;
-    padding: 18px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    font-weight: 500;
+    width: 80%;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
     transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hover effect */
+  .result-box:hover {
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Title */
+  .result-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
   }
   
   /* AI & Human Text Styling */
@@ -111,5 +141,12 @@
     color: green;
     font-weight: bold;
     font-size: 18px;
+  }
+  
+  /* Confidence Level */
+  .confidence {
+    font-size: 16px;
+    margin-top: 8px;
+    color: #555;
   }
   
