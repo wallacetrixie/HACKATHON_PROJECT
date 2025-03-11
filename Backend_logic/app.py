@@ -1,13 +1,14 @@
 from flask import Flask, request, jsonify
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
-from flask_cors import CORS  # Enables frontend-backend commun
+import time
+from flask_cors import CORS 
 
 app = Flask(__name__)
 CORS(app)  # Allow requests from React frontend
 
-# Load RoBERTa AI Detector Model
-MODEL_NAME = "roberta-base-openai-detector"  # Ensure this model exists
+# Loading RoBERTa AI Detector Model
+MODEL_NAME = "roberta-base-openai-detector"  
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
 
@@ -35,8 +36,24 @@ def analyze_text():
 
     return jsonify(result)
 
+@app.route("/train", methods=["POST"])
+def train_model():
+    """
+    Simulate training process when given human and AI text.
+    This is a mock implementation since real fine-tuning requires large datasets and GPU resources.
+    """
+    data = request.json
+    human_text = data.get("human_text", "").strip()
+    ai_text = data.get("ai_text", "").strip()
+
+    if not human_text or not ai_text:
+        return jsonify({"error": "Both human and AI text are required for training."}), 400
+
+    # Simulating training process
+    time.sleep(3) 
+    feedback = f"Model has been fine-tuned using the provided samples."
+
+    return jsonify({"message": feedback, "status": "Training completed"}), 200
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
-
-
-
