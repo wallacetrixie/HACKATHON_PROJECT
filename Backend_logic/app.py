@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
-from flask_cors import CORS  # Enables frontend-backend communication
+from flask_cors import CORS  # Enables frontend-backend commun
 
 app = Flask(__name__)
 CORS(app)  # Allow requests from React frontend
@@ -37,3 +37,6 @@ def analyze_text():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
+
+
