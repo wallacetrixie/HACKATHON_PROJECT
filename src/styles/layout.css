@@ -1,0 +1,56 @@
+/* Layout & Sidebar styles (polished) */
+.app-layout{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap:20px;
+  background: linear-gradient(180deg, var(--bg) 0%, #eef2f7 100%);
+}
+
+.sidebar{
+  padding:18px;
+  border-right:1px solid rgba(2,6,23,0.04);
+  background:var(--card);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.sidebar-header h3{
+  margin:0 0 6px 0;
+  font-size:18px;
+}
+.small-note{ font-size:12px; color:var(--muted); }
+
+.sidebar-controls{ display:flex; gap:8px; margin-bottom:8px; align-items:center; }
+.sidebar-controls button, .import-label{ padding:8px 10px; border-radius:8px; border:1px solid rgba(2,6,23,0.06); background:transparent; cursor:pointer; font-weight:600 }
+.import-label input{ display:none; }
+
+.sidebar-section{ padding-top:6px; border-top:1px dashed rgba(2,6,23,0.03); }
+.setting-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:8px }
+.setting-row input[type=range]{ width:100%; }
+
+.example-btn{ background:transparent; border:1px solid rgba(2,6,23,0.06); padding:8px 10px; border-radius:8px; cursor:pointer; text-align:left }
+.example-btn:hover{ background:rgba(2,6,23,0.03) }
+.examples-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px }
+
+.history-list{ margin-top:6px }
+.history-list ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px }
+.history-item{ display:flex; flex-direction:column; gap:4px }
+.history-btn{ text-align:left; background:transparent; border:none; color:var(--muted); cursor:pointer; padding:8px 10px; border-radius:6px }
+.history-btn:hover{ background:rgba(3,102,214,0.04); color:var(--accent-600) }
+.timestamp{ color:var(--muted); font-size:12px }
+
+.main-content{ padding:28px }
+
+@media (max-width:900px){
+  .app-layout{ grid-template-columns:1fr; }
+  .sidebar{ order:2 }
+  .main-content{ order:1 }
+}
+
+/* small active state helper */
+.active{ background: rgba(3,102,214,0.08); border-color: var(--accent-600); }
+
+/* theme dark based on data attribute on :root (variables are defined in input.css) */
+:root[data-theme='dark'] .sidebar{ background: var(--card); border-color: rgba(255,255,255,0.03) }
